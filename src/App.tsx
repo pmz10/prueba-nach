@@ -1,24 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes} from 'react-router-dom';
+import Navbar from './Componets/Navbar';
+import EmployeesNach from './Pages/EmployeesNach';
+import LoginNach from './Pages/LoginNach';
+import PageHome from './Pages/PageHome';
+import UploadNach from './Pages/UploadNach';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container-can">
+      <Navbar />
+     <Routes>
+      <Route path='/' element={ <PageHome /> } />
+      <Route path='/login' element={ <LoginNach /> } />
+      <Route path='/employees' element={ <EmployeesNach /> } />
+      <Route path='/upload' element={ <UploadNach /> } />
+      <Route path='*' element={ <PageHome /> }/>
+     </Routes>
     </div>
   );
 }
